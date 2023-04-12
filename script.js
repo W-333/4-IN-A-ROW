@@ -23,18 +23,21 @@ function createBoard() {
 
 // Function to handle player moves
 function makeMove(row, col) {
-  if (board[row][col] === '') {
-    const cell = document.getElementById('game-board').rows[row].cells[col];
-    if (currentPlayer === 1) {
-      cell.style.backgroundColor = PLAYER1_COLOR;
-      cell.innerText = 'X';
-      board[row][col] = 'X';
-      currentPlayer = 2;
-    } else {
-      cell.style.backgroundColor = PLAYER2_COLOR;
-      cell.innerText = 'O';
-      board[row][col] = 'O';
-      currentPlayer = 1;
+  for (let rowIdx = BOARD_SIZE_Y - 1; rowIdx >= 0; rowIdx--) {
+    if (board[rowIdx][col] === '') {
+      const cell = document.getElementById('game-board').rows[rowIdx].cells[col];
+      if (currentPlayer === 1) {
+        cell.style.backgroundColor = PLAYER1_COLOR;
+        cell.innerText = 'X';
+        board[rowIdx][col] = 'X';
+        currentPlayer = 2;
+      } else {
+        cell.style.backgroundColor = PLAYER2_COLOR;
+        cell.innerText = 'O';
+        board[rowIdx][col] = 'O';
+        currentPlayer = 1;
+      }
+      break;
     }
   }
 }
