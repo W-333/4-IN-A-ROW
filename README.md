@@ -1,4 +1,4 @@
-### 4_in_a_row
+### 4 IN A ROW
 A 4 in a row game, to play with friends
 
 
